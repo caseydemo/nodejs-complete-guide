@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
+const errorRoutes = require('./routes/404');
 
 /* third party library that parses body for us */
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -12,8 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
 
-app.use((req, res, next) => {
-  res.status(404).send('<h1>404 Error - Page Not Found</h1>');
-})
+app.use(errorRoutes);
+
 
 app.listen(3000);
