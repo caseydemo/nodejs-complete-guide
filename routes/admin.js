@@ -6,12 +6,18 @@ const products = [];
 
 /* form */
 router.get('/add-product', (req, res, next) => {
-  res.sendFile(path.join(rootDir, 'views', 'add-product.html'));
+  res.render('add-product', {
+    pageTitle: 'Add Ding Dang Product',
+    path: '/admin/add-product',
+    formsCSS: true,
+    productCSS: true,
+    activeAddProduct: true,
+  });
 });
 
 /* form action */
 router.post('/add-product', (req, res, next) => {
-  products.push({ title: req.body.title });
+  products.push({ title: req.body.title, pageTitle: '404 not found' });
   res.redirect('/');
 });
 
