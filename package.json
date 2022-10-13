@@ -28,6 +28,7 @@
     "pug": "^3.0.2"
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "tabWidth": 4
   }
 }
